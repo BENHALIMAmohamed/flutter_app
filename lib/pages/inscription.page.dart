@@ -33,15 +33,18 @@ class InscriptionPage extends StatelessWidget {
                           borderSide: const BorderSide(width: 1),
                           borderRadius: BorderRadius.circular(10)))),
             ),
-            ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(200, 50),
-                    padding: const EdgeInsets.all(15)),
-                child: const Text(
-                  'inscription',
-                  style: TextStyle(fontSize: 22),
-                ))
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(200, 50),
+                      padding: const EdgeInsets.all(15)),
+                  child: const Text(
+                    'inscription',
+                    style: TextStyle(fontSize: 22),
+                  )),
+            )
           ],
         ));
   }
