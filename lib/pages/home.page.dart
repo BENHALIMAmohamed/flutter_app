@@ -10,6 +10,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const MyDrawer(),
       appBar: AppBar(title: const Text("Page Home")),
       body: Container(
         padding: const EdgeInsets.all(10),
@@ -35,5 +36,26 @@ class HomePage extends StatelessWidget {
     // ignore: use_build_context_synchronously
     Navigator.of(context).pushNamedAndRemoveUntil(
         '/authentification', (Route<dynamic> routes) => false);
+  }
+}
+
+class MyDrawer extends StatelessWidget {
+  const MyDrawer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        children: const [
+          DrawerHeader(
+            decoration: BoxDecoration(gradient: LinearGradient(colors: [Colors.white,Colors.blue])),
+            child: Center(
+                child: CircleAvatar(
+              backgroundImage: AssetImage("images/profil.png"),
+            )),
+          )
+        ],
+      ),
+    );
   }
 }
