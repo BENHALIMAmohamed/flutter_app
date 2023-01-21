@@ -1,16 +1,25 @@
-import 'package:flutter/material.dart';
-import 'package:voyage/pages/inscription.page.dart';
 
-void main()=>runApp(const MyApp());
+import 'package:flutter/material.dart';
+import 'package:voyage/pages/home.page.dart';
+import 'package:voyage/pages/inscription.page.dart';
+import 'package:voyage/pages/authentification.page.dart';
+
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+  final routes = {
+    '/home': (context) => const HomePage(),
+    '/inscription': (context) => const InscriptionPage(),
+    '/authentification': (context) =>  AuthentificationPage(),
+  };
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: InscriptionPage(),
+      home: const InscriptionPage(),
+      routes: routes,
     );
   }
 }
