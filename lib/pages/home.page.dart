@@ -33,6 +33,7 @@ class HomePage extends StatelessWidget {
     prefs = await SharedPreferences.getInstance();
     prefs.setBool("connecte", false);
     // ignore: use_build_context_synchronously
-    Navigator.of(context).pushNamedAndRemoveUntil('authentification', (Route<dynamic> route) => false);
+    Navigator.of(context).pushNamedAndRemoveUntil(
+        '/authentification', (Route<dynamic> routes) => false);
   }
 }
