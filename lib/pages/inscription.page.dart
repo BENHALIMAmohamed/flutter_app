@@ -44,9 +44,18 @@ class InscriptionPage extends StatelessWidget {
                     'inscription',
                     style: TextStyle(fontSize: 22),
                   )),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, '/authentification');
+              },
+              style: TextButton.styleFrom(
+                textStyle: const TextStyle(fontSize: 22),
+              ),
+              child: const Text("j'ai deja un compt"),
             )
           ],
-        )
-        );
+        ));
   }
 }

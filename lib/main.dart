@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:voyage/pages/home.page.dart';
 import 'package:voyage/pages/inscription.page.dart';
@@ -11,12 +10,12 @@ class MyApp extends StatelessWidget {
   final routes = {
     '/home': (context) => const HomePage(),
     '/inscription': (context) => const InscriptionPage(),
-    '/authentification': (context) =>  const AuthentificationPage(),
+    '/authentification': (context) => const AuthentificationPage(),
   };
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const InscriptionPage(),
       routes: routes,
