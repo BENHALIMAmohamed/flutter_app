@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   final routes = {
     '/home': (context) => const HomePage(),
     '/inscription': (context) => const InscriptionPage(),
-    '/authentification': (context) =>  AuthentificationPage(),
+    '/authentification': (context) =>  const AuthentificationPage(),
   };
 
   @override

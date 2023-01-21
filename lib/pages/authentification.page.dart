@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class AuthentificationPage extends StatelessWidget {
-    AuthentificationPage({super.key});
-  TextEditingController txtlogin = TextEditingController();
-  TextEditingController txtpassword = TextEditingController();
+    const AuthentificationPage({super.key});
+ 
 
   @override
   Widget build(BuildContext context) {
+     TextEditingController txtlogin = TextEditingController();
+     TextEditingController txtpassword = TextEditingController();
     return Scaffold(
         appBar: AppBar(title: const Text("Page Authentification")),
         body: Column(
