@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+// ignore: must_be_immutable
 class AuthentificationPage extends StatelessWidget {
-  const AuthentificationPage({super.key});
+  AuthentificationPage({super.key});
+  TextEditingController txtlogin = TextEditingController();
+  TextEditingController txtpassword = TextEditingController();
+  late SharedPreferences prefs = prefs;
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController txtlogin = TextEditingController();
-    TextEditingController txtpassword = TextEditingController();
     return Scaffold(
         appBar: AppBar(title: const Text("Page Authentification")),
         body: Column(
@@ -25,6 +28,7 @@ class AuthentificationPage extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(10),
               child: TextFormField(
+                  obscureText: true,
                   controller: txtpassword,
                   decoration: InputDecoration(
                       prefixIcon: const Icon(Icons.password),
@@ -36,7 +40,9 @@ class AuthentificationPage extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(10),
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _onAuthentifier(context);
+                  },
                   style: ElevatedButton.styleFrom(
                       minimumSize: const Size(200, 50),
                       padding: const EdgeInsets.all(15)),
@@ -57,5 +63,26 @@ class AuthentificationPage extends StatelessWidget {
             )
           ],
         ));
+  }
+
+  Future<void> _onAuthentifier(BuildContext context) async {
+    prefs = await SharedPreferences.getInstance();
+    // ignore: non_constant_identifier_names
+    String LogLogin = prefs.getString("login") ?? "";
+    // ignore: non_constant_identifier_names
+    String LogPassword = prefs.getString("password") ?? "";
+    if (txtlogin.text == LogLogin && txtpassword.text == LogPassword) {
+      prefs.setString("login", txtlogin.text);
+      prefs.setString("password", txtpassword.text);
+      prefs.setBool("connecte", true);
+      // ignore: use_build_context_synchronously
+      Navigator.pop(context);
+      // ignore: use_build_context_synchronously
+      Navigator.pushNamed(context, '/home');
+    } else {
+      const snackBar = SnackBar(content: Text('Id ou mot de passe vides'));
+      // ignore: use_build_context_synchronously
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
   }
 }

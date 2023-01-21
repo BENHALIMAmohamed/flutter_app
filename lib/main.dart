@@ -8,16 +8,16 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   MyApp({super.key});
   final routes = {
-    '/home': (context) => const HomePage(),
-    '/inscription': (context) => const InscriptionPage(),
-    '/authentification': (context) => const AuthentificationPage(),
+    '/home': (context) => HomePage(),
+    '/inscription': (context) => InscriptionPage(),
+    '/authentification': (context) => AuthentificationPage(),
   };
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const InscriptionPage(),
+      home: InscriptionPage(),
       routes: routes,
     );
   }
